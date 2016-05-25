@@ -83,7 +83,12 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8916_32/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/qcom/msm8916_32/sound_trigger_mixer_paths_wcd9306.xml:system/etc/sound_trigger_mixer_paths_wcd9306.xml \
     device/qcom/msm8916_32/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/qcom/msm8916_64/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt
+    device/qcom/msm8916_64/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
+    device/qcom/msm8916_64/bootanimation.zip:system/media/bootanimation.zip
+
+# Boot animation
+PRODUCT_COPY_FILES += \
+    device/qcom/msm8916_64/bootanimation.zip:system/media/bootanimation.zip
 
 # MIDI feature
 PRODUCT_COPY_FILES += \

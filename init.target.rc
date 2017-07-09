@@ -60,6 +60,8 @@ on post-fs
 
     write /sys/class/gpio/export 1001
     write /sys/class/gpio/export 1002
+    write /sys/class/gpio/gpio1001/direction "out"
+    write /sys/class/gpio/gpio1002/direction "out"
 
 on fs
     wait /dev/block/bootdevice

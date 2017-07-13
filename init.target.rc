@@ -37,25 +37,6 @@ on early-init
 on post-fs
     export LD_PRELOAD libNimsWrap.so
 
-    # RSB4760 export GPIO
-
-    write /sys/class/gpio/export 910
-    write /sys/class/gpio/export 911
-    write /sys/class/gpio/export 914
-    write /sys/class/gpio/export 915
-    write /sys/class/gpio/export 926
-    write /sys/class/gpio/export 927
-    write /sys/class/gpio/export 928
-    write /sys/class/gpio/export 929
-    write /sys/class/gpio/export 930
-    write /sys/class/gpio/export 935
-    write /sys/class/gpio/export 936
-    write /sys/class/gpio/export 937
-    write /sys/class/gpio/export 938
-    write /sys/class/gpio/export 971
-    write /sys/class/gpio/export 975
-    write /sys/class/gpio/export 1010
-
     # RSB4760 COM Port control pin
 
     write /sys/class/gpio/export 1001

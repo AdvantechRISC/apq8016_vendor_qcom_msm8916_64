@@ -163,6 +163,10 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/secure_touch
     chown system drmrpc /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0070/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0070/secure_touch
+    
+    # Disable strictmode
+    setprop persist.sys.strictmode.disable 1
+    setprop persist.sys.strictmode.visual 0
 
 service wcnss-service /system/bin/wcnss_service
     class main
@@ -217,6 +221,15 @@ on property:init.svc.surfaceflinger=stopped
 
 on property:init.svc.surfaceflinger=running
     start ppd
+    
+service otaagent_startup /system/bin/sh /system/etc/otaup.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+on property:sys.boot_completed=1
+    start otaagent_startup
 
 on charger
     wait /dev/block/bootdevice/by-name/system
@@ -258,3 +271,26 @@ service adsprpcd /system/bin/adsprpcd
    class main
    user media
    group media
+
+# cust services
+service custd /system/bin/custd
+    class main
+    user root
+    group root
+
+service cust_sysinit /system/bin/sh /system/etc/cust_sysinit.sh
+    class main
+    user root
+    group root
+    oneshot
+
+service custcfg_upgrade /system/bin/sh /system/etc/cust_update.sh
+    class main
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:sys.cust.trigger=1
+    start custcfg_upgrade
+    

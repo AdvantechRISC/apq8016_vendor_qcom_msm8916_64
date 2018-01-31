@@ -190,3 +190,23 @@ PRODUCT_COPY_FILES += \
     device/qcom/msm8916_64/sensors/hals.conf:system/etc/sensors/hals.conf
 
 GMS_ENABLE_OPTIONAL_MODULES := false
+
+# OTA related file for android
+PRODUCT_COPY_FILES += \
+	device/qcom/common/otaagent-android/libsueclient.so:system/lib/libsueclient.so \
+	device/qcom/common/otaagent-android/OTA-Agent/agent_config.xml:system/lib/OTA-Agent/agent_config.xml \
+	device/qcom/common/otaagent-android/OTA-Agent/libSAGeneralHandler.so:system/lib/OTA-Agent/libSAGeneralHandler.so \
+	device/qcom/common/otaagent-android/OTA-Agent/libSAHandlerLoader.so:system/lib/OTA-Agent/libSAHandlerLoader.so \
+	device/qcom/common/otaagent-android/OTA-Agent/libSAManager.so:system/lib/OTA-Agent/libSAManager.so \
+	device/qcom/common/otaagent-android/OTA-Agent/module/libotahandler.so:system/lib/OTA-Agent/module/libotahandler.so \
+	device/qcom/common/otaagent-android/OTA-Agent/module/module_config.xml:system/lib/OTA-Agent/module/module_config.xml \
+	device/qcom/common/otaagent-android/OTA-Agent/ota-agent:system/lib/OTA-Agent/ota-agent \
+	device/qcom/common/otaagent-android/servertest:system/bin/servertest \
+	device/qcom/common/otaagent-android/otaup.sh:system/etc/otaup.sh
+    
+PRODUCT_COPY_FILES +=   \
+    device/qcom/msm8916_64/cust/cust_update.zip:system/cust/cust_update.zip \
+    device/qcom/msm8916_64/cust/cust_sysinit.sh:system/etc/cust_sysinit.sh \
+    device/qcom/msm8916_64/cust/cust_update.sh:system/etc/cust_update.sh
+
+
